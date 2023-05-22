@@ -25,16 +25,18 @@ const App = () => {
     },
     {
       id:3,
-      text:"Funcionalidade do sistema",
+      text: "Estudar React",
       category: "Estudos",
-      isCompleted:false,
+      isCompleted: false,
     }
   ]);
 
-  const [search,setSearch] = useState("");
+  
 
   const [filter,setFilter] = useState("All");
-  const [sort, setSort] = useState("Asc");  
+  const [sort, setSort] = useState("Asc"); 
+  
+  const [search,setSearch] = useState("");
 
   const addTodo = (text, category) => {
     const newTodos = [...todos,
@@ -65,7 +67,7 @@ const App = () => {
           .filter((todo) => filter === "All" ? true : filter === "Completed" ? todo.isCompleted : !todo.isCompleted)
 
           .filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()))
-
+            /*Crescente e Decrecente*/
           .sort((a, b)=>
             sort === "Asc"
             ? a.text.localeCompare(b.text)
